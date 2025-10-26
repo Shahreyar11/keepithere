@@ -1,4 +1,4 @@
-<h1>Track Your Future Works with z"keepItHere"</h1>
+<h1>Track Your Future Works with "keepItHere"</h1>
 
 <p>This is the official repository for the <b>keepItHere</b> application, a playlist and study tracker. This project is built with a React client and a Node.js/Express server.</p>
 
@@ -49,13 +49,13 @@ npm install</code></pre>
 <h3>Terminal 1: Run the Server</h3>
 
 <p>Navigate to the server directory and run the start script:</p>
-<pre><code>cd path/to/your-repo-name/server
-npm start</code></pre>
+<pre><code>cd keepithere/server
+node index.js</code></pre>
 <p>Your server will typically be running on <code>http://localhost:{$port}</code> (or check your server logs for the correct port).</p>
 
 <h3>Terminal 2: Run the Client</h3>
 
 <p>In your second terminal, navigate to the client directory and run its start script:</p>
-<pre><code>cd path/to/your-repo-name/client
-npm start</code></pre>
+<pre><code>cd keepithere/client
+npm run dev</code></pre>
 <p>Your React development server will start, and it should automatically open the application in your browser at <code>http://localhost:{port}</code>.</p>

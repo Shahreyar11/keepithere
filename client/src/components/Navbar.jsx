@@ -1,53 +1,57 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-md w-full px-6 py-4 flex justify-between items-center">
       <div className="flex items-center space-x-8">
-        <h1 className="text-2xl font-bold text-emerald-600">keepItHere</h1>
+        
+        <Link to="/" className="text-2xl font-bold text-emerald-600">
+          keepItHere
+        </Link>
 
         <ul className="flex space-x-6">
           <li>
-            <a
-              href="#"
+            <Link
+              to="/dashboard"
               className="text-gray-600 hover:text-emerald-600 font-medium transition-colors duration-150"
             >
               Dashboard
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/features"
               className="text-gray-600 hover:text-emerald-600 font-medium transition-colors duration-150"
             >
               Features
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              to="/about"
               className="text-gray-600 hover:text-emerald-600 font-medium transition-colors duration-150"
             >
-              Pricing
-            </a>
+              About
+            </Link>
           </li>
         </ul>
       </div>
 
       <div className="flex items-center space-x-4">
-        <a
-          href="#"
+        <Link
+          to="/login"
           className="text-gray-600 hover:text-emerald-600 font-medium transition-colors duration-150"
         >
           Log In
-        </a>
+        </Link>
 
-        <a
-          href="#"
+        <Link
+          to="/signup"
           className="bg-emerald-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-all duration-150 shadow-sm"
         >
           Sign Up
-        </a>
+        </Link>
       </div>
     </nav>
   );

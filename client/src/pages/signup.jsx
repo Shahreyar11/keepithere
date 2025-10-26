@@ -1,0 +1,95 @@
+import React from 'react';
+
+const Signup = () => {
+  return (
+
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+      
+      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+        
+        <div>
+          <h2 className="text-center text-3xl font-bold text-gray-900">
+            Create your account
+          </h2>
+          <p className="mt-2 text-center text-sm text-gray-600">
+            And start organizing your Pending Works!
+          </p>
+        </div>
+
+        <form className="mt-8 space-y-6" action="#" method="POST">
+          
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
+            <div className="mt-1">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
+                placeholder="Your Name"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email address
+            </label>
+            <div className="mt-1">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
+                placeholder="you@example.com"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <div className="mt-1">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="new-password"
+                required
+                className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
+                placeholder="••••••••"
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors"
+            >
+              Create Account
+            </button>
+          </div>
+        </form>
+
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-600">
+            Already have an account?{' '}
+            <a href="#" className="font-medium text-emerald-600 hover:text-emerald-500">
+              Log In
+            </a>
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

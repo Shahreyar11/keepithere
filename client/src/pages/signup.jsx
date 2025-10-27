@@ -1,13 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
-  return (
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Submitted");
+
+    const userData = {
+      username: username,
+      email: email,
+      password: password,
+    };
+
+    console.log("Sending this data to backend: ", userData);
+
+    const response = await fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    const result = await response.json();
+
+    console.log("Got this response", result);
+    alert(result.message);
+  };
+
+  return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        
         <div>
           <h2 className="text-center text-3xl font-bold text-gray-900">
             Create your account
@@ -17,26 +44,35 @@ const Signup = () => {
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" action="#" method="POST">
-          
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8 space-y-6"
+        >
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Full Name
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              User Name
             </label>
             <div className="mt-1">
               <input
                 id="name"
-                name="name"
+                name="username"
                 type="text"
-                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
-                placeholder="Your Name"
+                placeholder="User Name"
               />
             </div>
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email address
             </label>
             <div className="mt-1">
@@ -45,7 +81,8 @@ const Signup = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
-                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
                 placeholder="you@example.com"
               />
@@ -53,7 +90,10 @@ const Signup = () => {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <div className="mt-1">
@@ -62,7 +102,8 @@ const Signup = () => {
                 name="password"
                 type="password"
                 autoComplete="new-password"
-                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-emerald-500 focus:border-emerald-500"
                 placeholder="••••••••"
               />
@@ -81,13 +122,15 @@ const Signup = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            Already have an account?{' '}
-            <a href="#" className="font-medium text-emerald-600 hover:text-emerald-500">
+            Already have an account?{" "}
+            <a
+              href="#"
+              className="font-medium text-emerald-600 hover:text-emerald-500"
+            >
               Log In
             </a>
           </p>
         </div>
-        
       </div>
     </div>
   );

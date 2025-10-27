@@ -11,8 +11,10 @@ const userSchema = new mongoose.Schema({  // as mongoose.Schema is a class so we
     } ,
     password: {
         type: String,
-        require: true
+        required: true
     }
+},  {
+    timestamps: true
 });
 
 const USER = mongoose.model('user', userSchema);
